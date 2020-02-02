@@ -1,4 +1,6 @@
 # Technocrats_Task1
-detection.py - for detecting a green ball 
-1)Video Capturing using opencv
+working detection.py - for detecting a green ball 
+1)Conversion to HSV
+2)separation of green colour
+3)separating of circles using HOUGH CIRCLES
 
