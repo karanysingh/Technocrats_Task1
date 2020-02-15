@@ -17,8 +17,6 @@ class VideoCamera(object):
                                             minRadius=0, maxRadius=0)
             if circlesgreen is not None:
                 print("found green")
-            cv2.imshow('face', frame)
-            k = cv2.waitKey(1)
-            if k == ord('q'):
-                break
+            ret, jpeg = cv2.imencode('.jpg',frame) 
+            return jpeg.tobytes()
 VideoCamera().get_frame()
