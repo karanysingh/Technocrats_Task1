@@ -1,6 +1,12 @@
-# Technocrats_Task1
-working detection.py - for detecting a green ball 
-1)Conversion to HSV
-2)separation of green colour
-3)separating of circles using HOUGH CIRCLES
+# Technocrats Task 1
+The webpage displays the camera feed from the webcam(or video/URL).
 
+## To clone this repo locally
+* `git clone https://github.com/karanysingh/Technocrats_Task1`
+* run `python main.py` in terminal.
+
+## Libraries used
+* numpy
+* opencv
+* pySerial
+* flask
