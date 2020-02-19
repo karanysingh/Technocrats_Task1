@@ -3,6 +3,7 @@ The webpage displays the camera feed from the webcam(or video/URL).
 
 ## To clone this repo locally
 * `git clone https://github.com/karanysingh/Technocrats_Task1`
+* `cd Technocrats_Task1` 
 * run `python main.py` in terminal.
 * open `http://127.0.0.1:5000/` in the browser.
 
