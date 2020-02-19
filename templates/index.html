@@ -3,14 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+     <style>
+
+    h2   {
+        color: aliceblue;
+    }
+    h1{
+        color: darkslategrey;
+        text-align: center;
+        font-size: 70px;
+    }
+    body {
+        background-color: black;
+    }
+
+    #banner{
+        background-color: yellow;
+        height: 100px;
+        border-radius: 2%;
+        float: center;
+    }
+
+    </style>
+    <div id='banner'>
+    <img style ="text-align: -webkit-left;float: left;height: 100px;width:100px;" src="/banner">
+    <h1>TASK 1</h1>
+</div>
 </head>
 <body>
+
 <center>
-<h1>********************* TECHNOCRATS ROBOTICS*****************************</h1>
+    <br><br><br>
 <img src="{{ url_for('video_feed')}}">
 <title>Hello from Flask</title>
-    <h1>Hello World!!</h1>
-<h1>{{bla}}</h1>
+<h2>{{bla}}</h2>
     <h1>{{a}}
     </h1>
 
