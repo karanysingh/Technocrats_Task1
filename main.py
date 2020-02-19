@@ -3,10 +3,10 @@ from camera import VideoCamera
 
 app = Flask(__name__)
 @app.route('/')
-def blabla():
+def ballstatus():
     while True:
-        frame,bla = VideoCamera().get_frame()
-        return render_template('index.html',bla=bla)
+        frame,ball = VideoCamera().get_frame()
+        return render_template('index.html',ball=ball)
 
 def gen(camera):
     while True:
