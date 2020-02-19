@@ -1,5 +1,5 @@
 """     CAMERA MODULE
-captures the camera frames then displays 'Green Ball Found' if it detects a 'green ball' in the frame.
+captures the camera frames then displays 'Green Ball Found' on the frame if it detects a 'green ball' in the frame.
 """
 
 
