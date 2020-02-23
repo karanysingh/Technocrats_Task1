@@ -17,5 +17,6 @@ The webpage displays the camera feed from the webcam(or video/URL).
 * opencv
 * pySerial
 * flask
+#
 ![Screenshot](/templates/screenshot.png)
 
