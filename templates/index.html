@@ -64,6 +64,7 @@
         <tr><th>Parameter</th><th>Value</th></tr>
         <tr><td>Presence</td><td id="ball"></td></tr>
         <tr><td>Area</td><td id="vals"></td></tr>
+        <tr><td>Nearest Corner</td><td id="corn"></td></tr>
     </table>
     <!-- <button id="eventBtn" onclick="myFunc()">Test</button> -->
 <!--    <button>Get data</button>-->
@@ -77,17 +78,26 @@
 
 window.onload = ball;
   function status() {
+      //Getting the values of found status
          $.getJSON("{{ url_for('params') }}", function(result) {
       $.each(result, function (i, field) {
           // $("#ball").append(field + " ");
           console.log(field);
           $("#ball").text(field);
       });
-  });    $.getJSON("{{ url_for('params2') }}", function(result) {
+  });    //Getting values of area
+         $.getJSON("{{ url_for('params2') }}", function(result) {
       $.each(result, function (i, field) {
           // $("#ball").append(field + " ");
           console.log(field);
           $("#vals").text(field+" %");
+      });
+  }); //Getting the value of nearest corner
+           $.getJSON("{{ url_for('params3') }}", function(result) {
+      $.each(result, function (i, field) {
+          // $("#ball").append(field + " ");
+          console.log(field);
+          $("#corn").text(field+" %");
       });
   });
   }

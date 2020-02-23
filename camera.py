@@ -17,10 +17,18 @@ class VideoCamera(object):
     #destructor
     def __del__(self):
         self.video.release()
+    def corner(self,img,x,y,r):
+        centerX = (img.shape[0])/2
+        centerY = (img.shape[1])/2
+        if(x<centerX and y<centerX):
+            return("Top left Corner")
+        elif(x>centerX and y>centerX):
+            return("Bottom right Corner")
+        elif(x>centerX and y<centerX):
+            return("Top Right Corner")
+        else:
+            return("Bottom Left Corner")
 
-    #flask imports 'green ball found' through this function
-    # def output(self):
-    #     return a
     def area(self,img,t,threeArea,r):
         # print(r)
         area = cv2.countNonZero(img)
@@ -66,11 +74,13 @@ class VideoCamera(object):
             #Extracts the circles from filtered frame 'imgThreshHighgreen'
             circlesgreen = cv2.HoughCircles(imgThreshHighgreen, cv2.HOUGH_GRADIENT, 1, 20, param1=2, param2=30,minRadius=0, maxRadius=0)
             # print(circlesgreen)
+            cor = "Nearest Corner"
             #Puts 'Green Ball found' on the frame.
             if circlesgreen is not None:
                 a='FOUND!!'
                 img = imgThreshHighgreen
                 t,threeArea = self.area(img,t,threeArea,circlesgreen[0][0][2])
+                cor = self.corner(img,circlesgreen[0][0][0],circlesgreen[0][0][1],circlesgreen[0][0][2])
                 print(a)
                 # print("ball Found covering %d percent area" %((((area)/(img.size))*100)))
                 ser.write('H'.encode())#turns built in led 'on'
@@ -81,8 +91,7 @@ class VideoCamera(object):
             # cv2.imshow('frame', frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
-
             ret, jpeg = cv2.imencode('.jpg', frame)
-            return jpeg.tobytes(),a,threeArea
+            return jpeg.tobytes(),a,threeArea,cor
 ###########################################################################
 # VideoCamera().get_frame()
