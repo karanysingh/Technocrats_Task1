@@ -1,6 +1,3 @@
-![GitHub Logo](/images/logo.png)
-Format: ![Alt Text](url)
-
 # Technocrats Task 1
 The webpage displays the camera feed from the webcam(or video/URL).
 
@@ -20,4 +17,5 @@ The webpage displays the camera feed from the webcam(or video/URL).
 * opencv
 * pySerial
 * flask
+![Screenshot](/templates/screenshot.png)
 
