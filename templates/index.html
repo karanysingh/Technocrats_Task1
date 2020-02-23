@@ -49,7 +49,7 @@
 
 
 <script>
-        $("button").click(function(){setInterval(
+        $("button").click(function(){
   $.getJSON("{{ url_for('params') }}", function(result){
     $.each(result, function(i, field){
       // $("#ball").append(field + " ");
@@ -57,7 +57,7 @@
      $("#ball").text(field);
     });
   },1000);
-        )});
+        )};
       </script>
 
 </body>
