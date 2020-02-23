@@ -6,23 +6,37 @@
      <style>
 
     h2   {
-        color: aliceblue;
+        color: whitesmoke;
     }
     h1{
-        color: darkslategrey;
-        text-align: center;
+        color: whitesmoke;
+        /*text-align: center;*/
+        /*margin-left: -30px;*/
+        margin-left: 41%;
         font-size: 70px;
     }
     body {
-        background-color: black;
+        background-color:black;
+        font-family: fontttf;
+        background: url("/back");
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+    @font-face {
+        font-family: fontttf;
+        src:url("/font");
     }
 
     #banner{
-        background-color: yellow;
+        /*background-color: gold;*/
         height: 100px;
         border-radius: 2%;
         float: center;
     }
+         #feed{
+             box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+         }
 
     </style>
     <div id='banner'>
@@ -49,15 +63,25 @@
 
 
 <script>
-        $("button").click(function(){
-  $.getJSON("{{ url_for('params') }}", function(result){
-    $.each(result, function(i, field){
-      // $("#ball").append(field + " ");
-      console.log(field);
-     $("#ball").text(field);
-    });
-  },1000);
-        )};
+
+window.onload = ball;
+  function status() {
+         $.getJSON("{{ url_for('params') }}", function(result) {
+      $.each(result, function (i, field) {
+          // $("#ball").append(field + " ");
+          console.log(field);
+          $("#ball").text(field);
+      });
+  });
+  }
+  function ball() {
+      var t = setInterval(status,1000)
+  }
+//     });
+//   }); });
+//   });
+// });
+// });
       </script>
 
 </body>
