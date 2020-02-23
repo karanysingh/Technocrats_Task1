@@ -26,20 +26,39 @@
 
     </style>
     <div id='banner'>
-    <img style ="text-align: -webkit-left;float: left;height: 100px;width:100px;" src="/banner">
+    <img style ="text-align: -webkit-left;float: left;height: 80px;" src="/banner">
     <h1>TASK 1</h1>
 </div>
-</head>
-<body>
-
-<center>
+</head><center>
+<body background="/back">
     <br><br><br>
-<img src="{{ url_for('video_feed')}}">
-<title>Hello from Flask</title>
-<h2>{{ball}}</h2>
-    <h1>{{a}}
-    </h1>
+<!--<img id="feed" src="{{ url_for('video_feed')}}">-->
+<!--<title>Hello from Flask</title>-->
+<!--  <button>Get data</button>-->
+<!--<h2 id="ball">Green Ball</h2>-->
+    <img src="{{ url_for('video_feed')}}">
+<h2><u>Status</u></h2>
+    <h2 id="ball">Green Ball</h2>
 
-</center>
+    <!-- <button id="eventBtn" onclick="myFunc()">Test</button> -->
+    <button>Get data</button>
+</body></center>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+<script>
+        $("button").click(function(){setInterval(
+  $.getJSON("{{ url_for('params') }}", function(result){
+    $.each(result, function(i, field){
+      // $("#ball").append(field + " ");
+      console.log(field);
+     $("#ball").text(field);
+    });
+  },1000);
+        )});
+      </script>
+
 </body>
 </html>
