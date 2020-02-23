@@ -46,7 +46,7 @@ class VideoCamera(object):
             except:
                 ser = serial.Serial('/dev/ttyUSB0',9600)
             ser.write('L'.encode())#turns built in led 'off'
-            a='No green ball found'
+            a='Not Found'
             #RANGES OF ACCEPTED GREEN SHADES
             lower_green = np.array([45, 140, 50])
             upper_green = np.array([75, 255, 255])
@@ -68,7 +68,7 @@ class VideoCamera(object):
             # print(circlesgreen)
             #Puts 'Green Ball found' on the frame.
             if circlesgreen is not None:
-                a='*************Green ball Found!!***************'
+                a='FOUND!!'
                 img = imgThreshHighgreen
                 t,threeArea = self.area(img,t,threeArea,circlesgreen[0][0][2])
                 print(a)
@@ -83,6 +83,6 @@ class VideoCamera(object):
                 break
 
             ret, jpeg = cv2.imencode('.jpg', frame)
-            return jpeg.tobytes(),a
+            return jpeg.tobytes(),a,threeArea
 ###########################################################################
 # VideoCamera().get_frame()
