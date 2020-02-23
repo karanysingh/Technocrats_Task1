@@ -32,11 +32,17 @@
         /*background-color: gold;*/
         height: 100px;
         border-radius: 2%;
-        float: center;
+        box-shadow: 0 4px 20px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+        }
     }
-         #feed{
+    #feed{
              box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
-         }
+    }
+    table, th, td {
+            border: 1px solid yellow;
+            color: white;
+    }
+
 
     </style>
     <div id='banner'>
@@ -50,10 +56,15 @@
 <!--<title>Hello from Flask</title>-->
 <!--  <button>Get data</button>-->
 <!--<h2 id="ball">Green Ball</h2>-->
-    <img src="{{ url_for('video_feed')}}">
+    <img id="feed"src="{{ url_for('video_feed')}}">
 <h2><u>Status</u></h2>
-    <h2 id="ball">Green Ball</h2>
-
+<!--    <h2 id="ball">Green Ball</h2>-->
+<!--    <h2 id="vals">Area +"%" </h2>-->
+    <table>
+        <tr><th>Parameter</th><th>Value</th></tr>
+        <tr><td>Presence</td><td id="ball"></td></tr>
+        <tr><td>Area</td><td id="vals"></td></tr>
+    </table>
     <!-- <button id="eventBtn" onclick="myFunc()">Test</button> -->
 <!--    <button>Get data</button>-->
 </body></center>
@@ -71,6 +82,12 @@ window.onload = ball;
           // $("#ball").append(field + " ");
           console.log(field);
           $("#ball").text(field);
+      });
+  });    $.getJSON("{{ url_for('params2') }}", function(result) {
+      $.each(result, function (i, field) {
+          // $("#ball").append(field + " ");
+          console.log(field);
+          $("#vals").text(field+" %");
       });
   });
   }
