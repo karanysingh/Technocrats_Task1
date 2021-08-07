@@ -1,5 +1,8 @@
 # Technocrats Task 1
-The webpage displays the camera feed from the webcam(or video/URL).
+GreenBall detection using `python` `opencv`. A feed is provided to the webpage using `flask` with basic details like 
+ * closest corner of screen 
+ * percentage of area covered by ball
+ * etc.
 
 ## To clone this repo locally
 * `git clone https://github.com/karanysingh/Technocrats_Task1`
