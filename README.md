@@ -1,8 +1,8 @@
 # Technocrats Task 1
-GreenBall detection using `python` `opencv`. A feed is provided to the webpage using `flask` with basic details like 
- * closest corner of screen 
- * percentage of area covered by ball
- * etc.
+* GreenBall detection using `python` `opencv`. A feed is provided to the webpage using `flask` with basic details like
+ > closest corner of screen, percentage of area covered by ball etc.
+* Depending on whether ball is detected or not red or green light blinks of the connected arduino.[`serial communication`]
+* The basic UI is build using HTML CSS.
 
 ## To clone this repo locally
 * `git clone https://github.com/karanysingh/Technocrats_Task1`
